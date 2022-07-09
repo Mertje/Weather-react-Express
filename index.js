@@ -1,4 +1,4 @@
-const PORT = 8000;
+const POORT = 8000;
 const bodyParser = require("body-parser");
 const express = require("express");
 const cors = require("cors");
@@ -35,4 +35,4 @@ app.get("/weather", (req, res) => {
     .then((respo) => respo ? res.json(respo.data) : res.json());
 });
 
-app.listen(process.env.PORT || 8000, () => console.log(`server is running ${PORT}`));
+app.listen(process.env.PORT || POORT, () => console.log(`server is running ${POORT}`));

@@ -35,4 +35,4 @@ app.get("/weather", (req, res) => {
     .then((respo) => respo ? res.json(respo.data) : res.json());
 });
 
-app.listen(PORT, () => console.log(`server is running ${PORT}`));
+app.listen(process.env.PORT || 8000, () => console.log(`server is running ${PORT}`));

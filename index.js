@@ -4,8 +4,7 @@ const express = require("express");
 const cors = require("cors");
 const axios = require("axios");
 require("dotenv").config();
-const path = require('path');
-
+const path = require("path");
 
 const app = express();
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -14,7 +13,8 @@ app.use(cors());
 
 let city = "";
 
-app.use(express.static(path.join(__dirname, 'frontend/build')));
+//start compiled front-end
+app.use(express.static(path.join(__dirname, "frontend/build")));
 
 //gets city name from input react
 app.post("/city", (req, res) => {
@@ -32,7 +32,9 @@ app.get("/weather", (req, res) => {
       },
     })
     .catch((e) => console.log(e))
-    .then((respo) => respo ? res.json(respo.data) : res.json());
+    .then((respo) => (respo ? res.json(respo.data) : res.json()));
 });
 
-app.listen(process.env.PORT || POORT, () => console.log(`server is running ${POORT}`));
+app.listen(process.env.PORT || POORT, () =>
+  console.log(`server is running ${POORT}`)
+);
